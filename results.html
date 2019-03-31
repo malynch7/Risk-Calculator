@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>Risk Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+    <script type="text/javascript" src="riskCalculator.js"></script>
+</head>
+<body>
+<center>
+    <div class="divtop">
+        <h1>Risk Calculator</h1>
+        <ul class="ulnav">
+            <li class="linav"><a href="index.html">Home</a></li>
+        </ul>
+    </div>
+</center>
+
+<div class="card" style="width: 22rem; margin-top: 5%">
+    <div class="card-body">
+        <h3 class="card-title" align="center">Results</h3>
+        <hr>
+        <br>
+        <p align="center">
+            Property Crime Risk:<br><span id="crimeLow" class="badge badge-primary">Low</span>
+            <span id="crimeMid" class="badge badge-warning">Medium</span>
+            <span id="cimeHigh" class="badge badge-danger">High</span><br>
+        </p>
+        <p align="center">
+            Natural Disaster Risk:<br>
+            <span id="disasterLow" class="badge badge-primary">Low</span>
+            <span id="disasterMid" class="badge badge-warning">Medium</span>
+            <span id="disasterHigh" class="badge badge-danger">High</span><br>
+        </p>
+        <p align="center">
+            Vehicle Collision Risk:<br>
+            <span id="crashNone" class="badge badge-primary">Low</span>
+            <span id="crashLow" class="badge badge-primary">Low</span>
+            <span id="crashMid" class="badge badge-warning">Medium</span>
+            <span id="crashHigh" class="badge badge-danger">High</span><br>
+        </p>
+        <p align="center">
+            Overall Risk Level:<br>
+            <span id="totalLow" class="badge badge-primary">Low</span>
+            <span id="totalMid" class="badge badge-warning">Medium</span>
+            <span id="totalHigh" class="badge badge-danger">High</span><br>
+        </p>
+
+
+    </div>
+</div>
+
+<script>
+    var totalRisk = 0;
+
+    var crimeRisk = getCookie("crimeRisk");
+    if (crimeRisk == "low") {
+        document.getElementById("crimeMid").style.display = "none";
+        document.getElementById("crimeHigh").style.display = "none";
+    } else if (crimeRisk == "mid") {
+        totalRisk++;
+        document.getElementById("crimeLow").style.display = "none";
+        document.getElementById("crimeHigh").style.display = "none";
+    } else {
+        totalRisk += 2;
+        document.getElementById("crimeMid").style.display = "none";
+        document.getElementById("crimeLow").style.display = "none";
+    }
+
+    var disasterRisk = getCookie("disasterRisk");
+    if (disasterRisk == "low") {
+        document.getElementById("disasterMid").style.display = "none";
+        document.getElementById("disasterHigh").style.display = "none";
+    } else if (disasterRisk == "mid") {
+        totalRisk++;
+        document.getElementById("disasterLow").style.display = "none";
+        document.getElementById("disasterHigh").style.display = "none";
+    } else {
+        totalRisk += 2;
+        document.getElementById("disasterMid").style.display = "none";
+        document.getElementById("disasterLow").style.display = "none";
+    }
+
+    var crashRisk = getCookie("crashRisk");
+    if (crashRisk == "none") {
+        document.getElementById("crashLow").style.display = "none";
+        document.getElementById("crashMid").style.display = "none";
+        document.getElementById("crashHigh").style.display = "none";
+    } else if (crashRisk == "low") {
+        document.getElementById("crashNone").style.display = "none";
+        document.getElementById("crashMid").style.display = "none";
+        document.getElementById("crashHigh").style.display = "none";
+    } else if (crashRisk == "mid") {
+        totalRisk++;
+        document.getElementById("crashNone").style.display = "none";
+        document.getElementById("crashLow").style.display = "none";
+        document.getElementById("crashHigh").style.display = "none";
+    } else {
+        totalRisk += 2;
+        document.getElementById("crashNone").style.display = "none";
+        document.getElementById("crashMid").style.display = "none";
+        document.getElementById("crashLow").style.display = "none";
+    }
+
+    if (totalRisk < 2) {
+        document.getElementById("totalMid").style.display = "none";
+        document.getElementById("totalHigh").style.display = "none";
+    } else if (totalRisk < 4) {
+        document.getElementById("totalLow").style.display = "none";
+        document.getElementById("totalHigh").style.display = "none";
+    } else {
+        document.getElementById("totalMid").style.display = "none";
+        document.getElementById("totalLow").style.display = "none";
+    }
+
+
+</script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</html>

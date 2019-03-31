@@ -1,0 +1,94 @@
+body .terminal {
+    background-size: cover;
+    background-size: 100%;
+    background-image: url('../images/risk.png');
+}
+
+.badge{
+    width: 125px;
+    height: 35px;
+    padding-top: 9px;
+    font-size: 12pt;
+}
+
+.divtop {
+    background-color: #007bff;
+    color: white;
+}
+
+.divbg {
+    background-color: white;
+}
+
+.ulnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.linav {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-size: 100%;
+    background-image: url('../images/risk.png');
+}
+
+.card {
+    margin: auto;
+}
+
+.card .btn-primary {
+    width: 80%;
+}
+
+.card form{
+    margin: auto;
+    text-align: center;
+}
+
+.card table{
+    width: 80%;
+    border: solid 2px black;
+}
+
+.card td{
+    padding: 5px;
+}
+
+.jumbotron {
+    width: 80%;
+    margin: auto;
+    padding: 3%;
+}
+
+.jumbotron td{
+    width: 33%;
+    text-align: center;
+}
+
+.jumbotron ul{
+    text-align: left;
+}
